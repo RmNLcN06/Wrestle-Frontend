@@ -1,1 +1,13 @@
-<p>continent-form works!</p>
+<div class="container">
+    <h2> {{ isEditMode ? 'Edit Continent' : 'Add Continent' }} </h2>
+    <form (ngSubmit)="saveContinent()">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" class="form-control" [(ngModel)]="continent.name" name="name" required />
+        </div>
+        <button type="submit" class="btn btn-success">
+            {{ isEditMode ? 'Update' : 'Create' }}
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+    </form>
+</div>

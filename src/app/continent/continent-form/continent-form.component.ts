@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ContinentService } from '../continent.service';
 import { Continent } from '../continent';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-continent-form',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './continent-form.component.html',
   styleUrl: './continent-form.component.scss'
 })
