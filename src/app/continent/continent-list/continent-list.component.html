@@ -1,1 +1,23 @@
-<p>continent-list works!</p>
+<div class="container">
+    <h2>Continent List</h2>
+    <button class="btn btn-primary mb-3" (click)="addContinent()">Add Continent</button>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let continent of continents">
+                <td> {{continent.id}} </td>
+                <td> {{continent.name}} </td>
+                <td>
+                    <button class="btn btn-warning" (click)="editContinent(continent.id)">Edit</button>
+                    <button class="btn btn-danger" (click)="deleteContinent(continent.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
