@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './continent-list.component.html',
   styleUrl: './continent-list.component.scss'
 })
+
+
 export class ContinentListComponent implements OnInit {
 
   continents: Continent[] = [];

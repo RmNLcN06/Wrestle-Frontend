@@ -1,4 +1,7 @@
-<div class="container">
+<ng-template #noData>
+    <p>No continent available.</p>
+</ng-template>
+<div class="container" *ngIf="continents.length > 0; else noData">
     <h2>Continent List</h2>
     <button class="btn btn-primary mb-3" (click)="addContinent()">Add Continent</button>
     <table class="table table-bordered">

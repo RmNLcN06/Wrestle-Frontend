@@ -14,7 +14,7 @@ export class ContinentService {
 
   /**
    * GET a list of continents from the database
-   * @returns List of continents
+   * @returns Observable of an array of continents
    */
   getContinents(): Observable<Continent[]> {
     return this.http.get<Continent[]>(this.apiUrl);
@@ -23,7 +23,7 @@ export class ContinentService {
   /**
    * GET a continent by its ID from the database
    * @param id ID of the continent
-   * @returns Continent by its ID
+   * @returns Observable of the continent
    */
   getContinentById(id: number): Observable<Continent> {
     return this.http.get<Continent>(`${this.apiUrl}/${id}`);
@@ -31,27 +31,27 @@ export class ContinentService {
 
   /**
    * CREATE a new continent into the database
-   * @param continent Continent to create
-   * @returns New continent
+   * @param continent Continent datas to create
+   * @returns Observable of the created continent
    */
-  createContinent(continent: Continent): Observable<Continent> {
+  createContinent(continent: Omit<Continent, 'id'>): Observable<Continent> {
     return this.http.post<Continent>(this.apiUrl, continent);
   }
 
   /**
    * UPDATE datas from an existing continent from the database
    * @param id ID of the continent to update
-   * @param continent Continent to update
-   * @returns Continent updated
+   * @param continent Continent datas to update
+   * @returns Observable of the updated continent
    */
-  updateContinent(id: number, continent: Continent): Observable<Continent> {
+  updateContinent(id: number, continent: Omit<Continent, 'id'>): Observable<Continent> {
     return this.http.put<Continent>(`${this.apiUrl}/${id}`, continent);
   }
 
   /**
    * DELETE an existing continent from the database
    * @param id ID of the continent to delete
-   * @returns Continent deleted
+   * @returns Void observable
    */
   deleteContinent(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
