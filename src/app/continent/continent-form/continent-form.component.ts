@@ -10,11 +10,16 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './continent-form.component.html',
   styleUrl: './continent-form.component.scss'
 })
-export class ContinentFormComponent {
+export class ContinentFormComponent implements OnInit {
+
   continent: Continent = { id: 0, name: ''};
   isEditMode: boolean = false;
 
-  constructor(private continentService: ContinentService, private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private continentService: ContinentService, 
+    private route: ActivatedRoute, 
+    private router: Router
+  ){}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -29,7 +34,7 @@ export class ContinentFormComponent {
 
   saveContinent(): void {
     if(this.isEditMode) {
-      this.continentService.updateContinent(this.continent.id!, this.continent).subscribe({
+      this.continentService.updateContinent(this.continent.id, this.continent).subscribe({
         next: () => {
           alert('Continent updated successfully !');
           this.router.navigate(['/']);

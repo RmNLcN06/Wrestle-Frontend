@@ -6,13 +6,16 @@ export const routes: Routes = [
     { 
         path: '',
         component: ContinentListComponent,
+        title: 'Continent List'
     },
     { 
         path: 'add',
         component: ContinentFormComponent,
+        title: 'Add A New Continent'
     },
     { 
         path: 'edit/:id',
         component: ContinentFormComponent,
+        title: 'Update An Existant Continent'
     },
 ];
